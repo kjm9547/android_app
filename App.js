@@ -1,5 +1,7 @@
-import React from 'react';
+import { react } from '@babel/types';
+import React, {Component} from 'react';
 import {
+  AppState,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -8,25 +10,26 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import Custom_bt from './Custom_bt';
+
 
 
 export default class App extends React.Component {
+
   render() {
     return(
       <View style={styles.container}>
         <View style={styles.header} />
         <View style={styles.content}> 
             <View style={styles.profile}/>
-            <Text style={styles.name}> hi </Text>
-            <View style={styles.ms}/>
-            
+            <Text> 안녕하세요 </Text>
+              <Custom_bt>{this.props.name}</Custom_bt>
         </View>
         <View style={styles.footer} />
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   container:{
     flex:1,
@@ -52,9 +55,5 @@ const styles = StyleSheet.create({
     borderRadius:25,
     backgroundColor:'orange'
   },
-  ms: {
-    width:'70%',
-    alignItems:'flex-end',
-    backgroundColor:'yellow',
-  }
+ 
 });
