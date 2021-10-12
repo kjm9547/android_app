@@ -11,75 +11,54 @@ import {
   Text,
   useColorScheme,
   View,
+  Image,
 } from 'react-native';
-import Custom_bt from './Custom_bt';
+import Custom_bt from './custom_bt'
 
 
 export default class App extends React.Component {
   constructor(props){
     super(props);
 
-    this.state={count:0};
-    
+  
   }
-  _updateCount(){
-    this.setState({
-      count:this.state.count+1,
-    });
-    // this.setState((prevState, props) => {
-    //   return {count:prevState.count+1}
-    // });
-  }
-
+ 
   render() {
     return(
-      <View style={styles.container}>
-        <View style={styles.header} />
-        <View style={styles.content}> 
-            <View style={styles.profile}/>
-            <Text> 안녕하세요 </Text>
-            <Custom_bt
-            id={'login'}
-            title={'회원가입'}
-            onPress= {()=>alert('hs')}
-            ></Custom_bt>
-
-            <Button
-            color="green"
-            title={this.state.count.toString()}
-            onPress={this._updateCount.bind(this)}></Button>
-          
+      <View style = {styles.container}>
+        <View style = {styles.title}>
+          <Text style={{fontSize:35, color:'white'}}>어서와,{'\n'} 여행은 처음이지?</Text>
         </View>
-        <View style={styles.footer} />
+        <View style = {styles.content}>
+        <Image
+            style={{height:'100%',width:'100%',resizeMode:'cover'}}
+            source={require('./10.9.jpg')}/>
+          </View>
+        <View style = {styles.footer}>
+            <Custom_bt>
+            </Custom_bt>
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container:{
+  container: {
     flex:1,
+    backgroundColor:'black'
   },
+  title:{
+    flex:1,
+    backgroundColor:'black'
+  },
+  content:{
+    flex:4,
+    backgroundColor:'black'
+  },
+  footer:{
+    flex:1,
+    backgroundColor:'black'
+  }
 
-  header: {
-    flex:1,
-    backgroundColor: 'green',
-  },
-  content: {
-    flex:8,
-    backgroundColor: 'white',
-    flexDirection:'column',
-  },
-  footer: {
-    flex:1,
-    backgroundColor: 'yellow',
-  },
-  profile:{
-    width:50,
-    height:50,
-    margin:8,
-    borderRadius:25,
-    backgroundColor:'orange'
-  },
- 
-});
+})
