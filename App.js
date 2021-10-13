@@ -13,9 +13,7 @@ import {
   View,
   Image,
 } from 'react-native';
-import Custom_bt from './custom_bt'
-
-
+import Custom_bt from './custom_bt';
 export default class App extends React.Component {
   constructor(props){
     super(props);

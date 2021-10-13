@@ -2,6 +2,7 @@ import { react } from "@babel/types";
 import React from "react";
 import { Button,Text, View, Stylesheet, TextInput, StyleSheet } from "react-native";
 import Custom_bt from './custom_bt'
+import 'react-native-gesture-handler'
 export default class Login extends React.Component {
     render(){
         return(
