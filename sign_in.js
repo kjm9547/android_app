@@ -1,7 +1,7 @@
 import { react } from "@babel/types";
 import React from "react";
 import { Button,Text, View, Stylesheet, TextInput, StyleSheet } from "react-native";
-import Custom_bt from './custom_bt'
+
 export default class Sign_in extends React.Component {
     render(){
         return(
@@ -27,7 +27,7 @@ export default class Sign_in extends React.Component {
                 </View>
                
                 <View style={styles.footer}>
-                  <Custom_bt></Custom_bt>
+                  
                 </View>
             </View>
         )

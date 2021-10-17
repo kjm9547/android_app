@@ -1,9 +1,27 @@
-import React from "react";
-import { Button,Text, View, Stylesheet, TextInput, StyleSheet } from "react-native";
-import Custom_bt from './custom_bt'
+import React,{Component} from "react";
+import { Button,Text, View, Stylesheet, TextInput, StyleSheet,TouchableOpacity } from "react-native";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import Sign_in from './sign_in';
+import Homepage from './App'
+const Stack = createNativeStackNavigator();
 
 
-export default class Login extends React.Component {
+class App extends Component {
+    render () {
+        return (
+            <NavigationContainer>
+                <Stack.Navigator>
+                    <Stack.Screen name="Home" component={Homepage}/>
+                </Stack.Navigator>
+            </NavigationContainer>
+        )
+    }
+}
+
+
+class Login extends React.Component {
     render(){
         return(
             <View style={styles.container}>
@@ -20,15 +38,19 @@ export default class Login extends React.Component {
                     <Text style={{paddingRight:10, fontSize:20}}>비밀번호</Text>
                       <TextInput style={{width:'70%',height:30,borderColor:'black',justifyContent:'space-between', borderWidth:1,padding:5}}></TextInput>
                   </View>
-                </View>
-               
+                </View> 
                 <View style={styles.footer}>
-                  <Custom_bt></Custom_bt>
+                <TouchableOpacity style={styles.button}
+                  onPress={()=>{this.props.navigation.navigate('Home')}}>
+                      <Text>hi</Text>
+                  </TouchableOpacity>
                 </View>
+                
             </View>
         )
     }
 } 
+
 
 const styles = StyleSheet.create({
     container:{
@@ -39,6 +61,13 @@ const styles = StyleSheet.create({
         flex:1,
         
     },
+    button: {
+        margin:10,
+        height:30,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'gray',
+      },
     content:{
         flex:4,
         
@@ -56,3 +85,4 @@ const styles = StyleSheet.create({
     }
 
 })
+export default Login;
